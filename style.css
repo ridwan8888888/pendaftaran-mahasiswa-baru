@@ -1,0 +1,244 @@
+/* ========================= */
+/* Header dengan logo + judul */
+/* ========================= */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.header .logo {
+  width: 80px;
+  height: auto;
+}
+
+.header .title-text h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+  color: #b22222;
+  border-bottom: 3px solid #FFD700;
+  display: inline-block;
+  padding-bottom: 3px;
+}
+
+.header .title-text p {
+  margin: 3px 0 0 0;
+  font-size: 14px;
+  color: #444;
+}
+
+/* ========================= */
+/* Style UTAMA */
+/* ========================= */
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f8f9fa;
+  margin: 0;
+  padding: 0;
+}
+
+/* Container */
+.container {
+  width: 85%;
+  max-width: 850px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 25px 30px;
+  border-radius: 12px;
+  border: 2px solid #b22222;
+  box-shadow: 0 4px 20px rgba(178, 34, 34, 0.15);
+  box-sizing: border-box;
+}
+
+/* Judul global (jika tidak di header) */
+h2 {
+  text-align: center;
+  color: #b22222;
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 25px;
+  border-bottom: 3px solid #FFD700;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+/* ========================= */
+/* Fieldset & Legend */
+/* ========================= */
+form fieldset {
+  margin-bottom: 25px;
+  border: 2px solid #b22222;
+  border-radius: 8px;
+  padding: 15px 20px;
+  background: #fffdfa;
+  overflow: hidden;
+}
+
+legend {
+  font-weight: bold;
+  font-size: 18px;
+  color: #b22222;
+  padding: 0 10px;
+  margin-left: 10px;
+}
+
+/* ========================= */
+/* Label dan Input */
+/* ========================= */
+label {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: #333;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 10px 12px;
+  margin-top: 3px;
+  border: 1.5px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+  transition: 0.3s;
+  box-sizing: border-box;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: #b22222;
+  outline: none;
+  box-shadow: 0 0 5px rgba(178, 34, 34, 0.3);
+}
+
+/* Textarea */
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* ========================= */
+/* Tombol */
+/* ========================= */
+button {
+  margin: 15px 8px 0 0;
+  padding: 12px 25px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* Tombol Daftar */
+button[type="submit"] {
+  background: #b22222;
+  color: #fff;
+}
+
+button[type="submit"]:hover {
+  background: #8b1a1a;
+}
+
+/* Tombol Reset */
+button[type="reset"] {
+  background: #FFD700;
+  color: #000;
+}
+
+button[type="reset"]:hover {
+  background: #e6c200;
+}
+
+/* Tombol Link (Lihat Data & Kembali) */
+.btn {
+  display: inline-block;
+  padding: 12px 25px;
+  margin: 15px 8px 0 0;
+  background-color: #800000;
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background-color: #a00000;
+}
+
+.lihat-btn {
+  background-color: #006699;
+}
+
+.lihat-btn:hover {
+  background-color: #0088cc;
+}
+
+/* ========================= */
+/* Data Konfirmasi */
+/* ========================= */
+.data-box {
+  margin-top: 20px;
+  padding: 20px;
+  border: 2px solid #b22222;
+  border-radius: 8px;
+  background: #fffdfa;
+}
+
+.data-box h3 {
+  margin-top: 0;
+  color: #b22222;
+  border-bottom: 2px solid #FFD700;
+  padding-bottom: 5px;
+}
+
+.data-box table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.data-box td {
+  padding: 8px;
+  vertical-align: top;
+}
+
+.data-box tr:nth-child(odd) {
+  background: #f9f9f9;
+}
+
+/* ========================= */
+/* Efek Interaktif Tambahan */
+/* ========================= */
+form fieldset:hover {
+  border-color: #8b1a1a;
+  background: #fffef8;
+  box-shadow: 0 0 6px rgba(178, 34, 34, 0.2);
+}
+
+/* Responsif */
+@media (max-width: 600px) {
+  .header {
+    flex-direction: column;
+  }
+
+  .header .title-text h2 {
+    font-size: 20px;
+  }
+
+  .container {
+    padding: 20px;
+  }
+
+  input, select, textarea {
+    font-size: 14px;
+  }
+
+  button, .btn {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}

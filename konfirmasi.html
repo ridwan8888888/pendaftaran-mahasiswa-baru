@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Konfirmasi Pendaftaran</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <img src="logo.png" alt="Logo UNTAG Surabaya" class="logo">
+      <div class="title-text">
+        <h2>Konfirmasi Pendaftaran</h2>
+        <p>Mahasiswa Baru</p>
+      </div>
+    </header>
+
+    <!-- Data -->
+    <div id="dataPendaftar" class="data-box"></div>
+
+    <!-- Tombol -->
+    <div style="margin-top:20px;">
+      <a href="index.html" class="btn">Kembali ke Form</a>
+      <button id="hapusData" class="btn danger">Hapus Data</button>
+    </div>
+  </div>
+
+  <script>
+    // Ambil data dari localStorage
+    const data = JSON.parse(localStorage.getItem("pendaftaranData"));
+
+    // Tampilkan data
+    if (data) {
+      let output = "<h3>Data Pendaftar</h3><table>";
+
+      for (let key in data) {
+        if (key !== "foto" && key !== "ijazah") {
+          output += `<tr><td><b>${key.replace(/_/g, " ")}</b></td><td>: ${data[key]}</td></tr>`;
+        }
+      }
+
+      output += "</table>";
+
+      // Tampilkan Foto
+      if (data.foto) {
+        output += "<h4>Pas Foto</h4>";
+        output += `<img src="${data.foto}" alt="Pas Foto" style="max-width:150px; border:1px solid #ccc; padding:5px;">`;
+      }
+
+      // Tampilkan Ijazah
+      if (data.ijazah) {
+        output += "<h4>Scan Ijazah</h4>";
+        if (data.ijazah.startsWith("data:application/pdf")) {
+          output += `<embed src="${data.ijazah}" type="application/pdf" width="100%" height="400px">`;
+          output += `<p><a href="${data.ijazah}" download="ijazah.pdf">Download Ijazah</a></p>`;
+        } else {
+          output += `<img src="${data.ijazah}" alt="Scan Ijazah" style="max-width:300px; border:1px solid #ccc; padding:5px;">`;
+        }
+      }
+
+      document.getElementById("dataPendaftar").innerHTML = output;
+    } else {
+      document.getElementById("dataPendaftar").innerHTML = "<p>Belum ada data pendaftaran.</p>";
+    }
+
+    // Tombol Hapus Data
+    document.getElementById("hapusData").addEventListener("click", () => {
+      if (confirm("Yakin ingin menghapus data pendaftaran?")) {
+        localStorage.removeItem("pendaftaranData");
+        location.reload();
+      }
+    });
+  </script>
+</body>
+</html>
